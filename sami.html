@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/sami.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="f-group">
+        <label for="">Country</label>
+        <select name="slct1" id="slct1" onchange="populate(this.id,'slct2')">
+          <option value="">-- Choose Country --</option>
+          r
+          <option value="india">INDIA</option>
+          <option value="america">AMERICA</option>
+          <option value="russia">Russia</option>
+        </select>
+      </div>
+
+      <div class="f-group">
+        <label for="">Cities</label>
+        <select name="slct2" id="slct2"></select>
+      </div>
+    </div>
+
+    <script>
+        var country = document.getElementById("slct1").value;
+      
+        var city = [
+        { 
+          country: "india",
+          city: ["delhi", "lanchow", "abursher"] 
+          },
+        { country: "pakistan",
+          city:  ['Islamabad','Karachi','Hadrabad','Faislabad','Sargodha','Rawlpindi','Rawat','Tando Adam'] 
+        },
+        { country: "america", 
+          city: ["los angles", "mexico", "new york"] 
+      },
+        { country: "russia", 
+          city: ["los ", "city2", "city3"] 
+      },
+      ];
+
+      function populate() {
+        var cities = document.getElementById("slct2");
+        var country = document.getElementById("slct1").value;
+        cities.innerHTML = "";
+        var option = "";
+        city.forEach((element) => {
+          if (element.country == country) {
+            var cityFetch2 = element.city;
+            cityFetch2.forEach((item) => {
+              option = `<option>${item}</option>`;
+              cities.innerHTML += option;
+            });
+          }
+        });
+      }
+
+      
+       
+      // function populate(s1,s2){
+      //     var s1 = document.getElementById(s1);
+      //     var s2 = document.getElementById(s2);
+
+      //     s2.innerHTML = "";
+      //     if(s1.value == "pakistan"){
+      //         var optionarray = ['islamabad|Islamabad','karachi|Karachi','gadrabad|Hadrabad','faislabad|Faislabad','sargodha|Sargodha','rawalpindi|Rawlpindi','rawat|Rawat','tando adam|Tando Adam'];
+      //     }else if(s1.value = "america"){
+      //         var optionarray = ['new york|New York','los angeles|Los Angeles','colorinia|Colorinia','mexico|Mexico','kannas|Kannas','san francisco|San Francisco','nevada|Navada','holiwood|Holiwood'];
+      //     }
+
+      //     for(var option in optionarray)
+      //     {
+      //         var pair = optionarray[option].split("|");
+      //         var newoption = document.createElement("option");
+
+      //         newoption.value = pair[0];
+      //         newoption.innerHTML = pair[1];
+      //         s2.options.add(newoption);
+      //     }
+      // }
+    </script>
+  </body>
+</html>

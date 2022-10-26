@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+     
+    //  var a = 3;
+    //  var b = 2;
+    //  var c =String(a)
+    //  var d =String(b)
+    // console.log ( c + d)
+      
+    </script>
+</head>
+<body>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button onclick="table()">Multiplication Table</button>
+    <button onclick="cleardata()">Clear Data</button>
+    <div id="result"></div>
+
+
+
+
+
+
+
+    <script>
+      function table(){
+            var x = document.getElementById("num1").value;
+            var y = document.getElementById("num2").value;
+            var txt = "<table border='1' cellpadding='0' width='50%'>";
+                var i = 1;
+/*
+                while(i <= parseInt(tablelenth)){
+                    txt+=`<tr><td>${tablenum} x ${i} = ${tablenum * i}  <td></tr>`;
+                    i++;
+                }
+            */
+            for(var i = 1; i <= parseInt(y); i++ ){
+                txt += "<tr>"
+                txt += "<td>"+ x +"</td>"
+                txt += "<td> x "+ i +" =</td>"
+                txt += "<td>"+ i * parseInt(x) + "</td>"
+                txt += "</tr>"
+            }
+            
+            txt += "</table>"
+            document.getElementById("result").innerHTML = txt
+        }
+        function cleardata(){
+            document.getElementById("result").innerHTML = "";
+        }
+    </script>
+</body>
+</html>
